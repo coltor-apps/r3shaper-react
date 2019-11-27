@@ -1,0 +1,45 @@
+{
+  "name": "r3shaper-react",
+  "version": "0.0.1",
+  "description": "R3shaper HOC and hook for React",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rm -rf dist && babel ./src -d dist --copy-files"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coltor-apps/r3shaper-react.git"
+  },
+  "keywords": [
+    "r3shaper",
+    "react",
+    "API",
+    "Rest",
+    "HOC",
+    "hook"
+  ],
+  "author": "coltor-apps",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/coltor-apps/r3shaper-react/issues"
+  },
+  "homepage": "https://github.com/coltor-apps/r3shaper-react#readme",
+  "dependencies": {
+    "p-debounce": "^2.1.0",
+    "p-throttle": "^3.1.0"
+  },
+  "peerDependencies": {
+    "react": "^16.11.0",
+    "r3shaper": "^0.1.6"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.7.2",
+    "@babel/preset-react": "^7.0.0"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-react"
+    ]
+  }
+}
