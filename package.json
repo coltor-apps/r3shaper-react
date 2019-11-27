@@ -1,6 +1,6 @@
 {
   "name": "r3shaper-react",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "R3shaper HOC and hook for React",
   "main": "dist/index.js",
   "scripts": {
@@ -29,8 +29,8 @@
     "p-throttle": "^3.1.0"
   },
   "peerDependencies": {
-    "react": "^16.11.0",
-    "r3shaper": "^0.1.6"
+    "r3shaper": "^0.1.6",
+    "react": "^16.11.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
@@ -41,5 +41,10 @@
     "presets": [
       "@babel/preset-react"
     ]
-  }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 9"
+  ]
 }
