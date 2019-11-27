@@ -1,6 +1,6 @@
 import React from 'react';
 
-import useR3shaper from './useR3shaper';
+import { useR3shaper } from './useR3shaper';
 
 export const withR3shaper = (
   OriginalComponent,
