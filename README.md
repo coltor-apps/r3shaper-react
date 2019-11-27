@@ -3,3 +3,5 @@
 </p>
 
 > Note: Documentation coming soon
+
+Created with ❤️ by [Sergiu Masurceac](https://twitter.com/masurceac)
