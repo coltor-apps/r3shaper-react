@@ -3,9 +3,12 @@ import debounce from 'p-debounce';
 import throttle from 'p-throttle';
 
 export function useR3shaper(
-  dispatch,
-  initialRequestOptions = {},
-  options = { debounce: 0, throttle: 0 }
+  resource,
+  {
+    debounce: debounceTime = 0,
+    throttle: throttleTime = 0,
+    manual = false
+  } = {}
 ) {
   const [r3shaperOptions, setR3shaperOptions] = useState({
     loading: false,
@@ -13,36 +16,40 @@ export function useR3shaper(
     response: null
   });
 
-  const [requestOptions, setRequestOptions] = useState(initialRequestOptions);
+  const responseReducer = (oldData, newData) => newData;
 
-  useEffect(() => {
-    setR3shaperOptions({ ...r3shaperOptions, loading: true });
-
-    dispatch(requestOptions)
+  const dispatchRequest = (options, reducer = responseReducer) =>
+    resource(options)
       .then(data => {
         setR3shaperOptions({
-          ...r3shaperOptions,
-          response: data,
+          loading: false,
           error: null,
-          loading: false
+          response: reducer(r3shaperOptions.response, data)
         });
       })
-      .catch(e => {
+      .catch(error => {
         setR3shaperOptions({
           ...r3shaperOptions,
-          error: e,
+          error,
           loading: false
         });
       });
-  }, [requestOptions]);
+
+  const dispatchWrapped = debounce(
+    throttle(dispatchRequest, 1, throttleTime),
+    debounceTime
+  );
+
+  useEffect(() => {
+    if (!manual) {
+      dispatchWrapped();
+    }
+  }, [manual]);
 
   return {
     response: r3shaperOptions.response,
     error: r3shaperOptions.error,
     loading: r3shaperOptions.loading,
-    dispatchRequest: debounce(
-      throttle(setRequestOptions, 1, options.throttle),
-      options.debounce
-    )
+    dispatch: dispatchWrapped
   };
 }
