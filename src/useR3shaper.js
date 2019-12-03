@@ -44,7 +44,7 @@ export function useR3shaper(
     if (!manual) {
       dispatchWrapped();
     }
-  }, [manual]);
+  }, []);
 
   return {
     response: r3shaperOptions.response,
