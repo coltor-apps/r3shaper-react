@@ -1,5 +1,5 @@
 <p align="center">
-✨R3shaper React Hook and HOC ✨
+✨R3shaper Hook, HOC and Component for React✨
 </p>
 
 > Note: Documentation coming soon

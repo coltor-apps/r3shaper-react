@@ -5,8 +5,8 @@ import throttle from 'p-throttle';
 export function useR3shaper(
   resource,
   {
-    debounce: debounceTime = 0,
-    throttle: throttleTime = 0,
+    debounce: debounceSeconds = 0,
+    throttle: throttleSeconds = 0,
     manual = false
   } = {}
 ) {
@@ -36,8 +36,8 @@ export function useR3shaper(
       });
 
   const dispatchWrapped = debounce(
-    throttle(dispatchRequest, 1, throttleTime),
-    debounceTime
+    throttle(dispatchRequest, 1, throttleSeconds),
+    debounceSeconds
   );
 
   useEffect(() => {
