@@ -1,7 +1,7 @@
 {
   "name": "r3shaper-react",
-  "version": "0.0.2",
-  "description": "R3shaper HOC and hook for React",
+  "version": "0.1.0",
+  "description": "R3shaper HOC, hook and component for React",
   "main": "dist/index.js",
   "scripts": {
     "build": "rm -rf dist && babel ./src -d dist --copy-files"
@@ -16,7 +16,8 @@
     "API",
     "Rest",
     "HOC",
-    "hook"
+    "hook",
+    "r3shaper component"
   ],
   "author": "coltor-apps",
   "license": "MIT",
