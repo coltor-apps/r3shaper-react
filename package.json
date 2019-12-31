@@ -1,6 +1,6 @@
 {
   "name": "r3shaper-react",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "R3shaper HOC, hook and component for React",
   "main": "dist/index.js",
   "scripts": {
