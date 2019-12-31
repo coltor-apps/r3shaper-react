@@ -33,9 +33,7 @@ export const UsersResource = {
 
 ## Hook
 
-### R3shaper hook arguments
-
-R3shaper hook accepts 2 arguments and returns an object with 4 fields, as shown in the code snippet below:
+R3shaper hook accepts 2 arguments and returns an object with 4 properties, as shown in the code snippet below:
 
 ```js
 import { useR3shaper } from 'r3shaper-react';
@@ -51,33 +49,20 @@ const { response, error, loading, dispatch } = useR3shaper(resource, options);
 | `options.manual`   | Boolean  | false   | Shall the request be triggered manually |
 
 <br/>
+<p id="hook_properties_docs">
 
-| Field      | Type     | Description                                                                                                          |
+| Property   | Type     | Description                                                                                                          |
 | ---------- | -------- | -------------------------------------------------------------------------------------------------------------------- |
 | `response` | Object   | Response object                                                                                                      |
 | `error`    | Object   | Error object                                                                                                         |
 | `loading`  | Boolean  | Indicates if the request was finished or not                                                                         |
 | `dispatch` | Function | Function invoked to dispatch the request. Accepts exactly the same arguments as an ordinary r3shaper resource method |
 
+</p>
+
+
+
 ## Component
-
-```js
-import { R3shaper } from 'r3shaper-react';
-```
-
-### R3shaper component Props
-
-| Prop       | Type     | Default | Description                                                                                                               |
-| ---------- | -------- | ------- | ------------------------------------------------------------------------------------------------------------------------- |
-| `resource` | Function | -       | R3shaper resource method                                                                                                  |
-| `debounce` | Number   | 0       | Debounce time (ms)                                                                                                        |
-| `throttle` | Number   | 0       | Throttle time (ms)                                                                                                        |
-| `manual`   | Boolean  | false   | Shall the request be triggered manually                                                                                   |
-| `children` | Function | -       | React component that will receive following props: `loading`, `response`, `error` and `dispatch` (see hook documentation) |
-
-> All other props passed to R3shaper will be passed down to it's children
-
-### Example
 
 ```jsx
 import { R3shaper } from 'r3shaper-react';
@@ -103,9 +88,22 @@ function ExampleComponent() {
 }
 ```
 
-## Higher-Order Component
+### R3shaper component Props
 
-### Example usage
+| Prop       | Type     | Default | Description                                                                                                               |
+| ---------- | -------- | ------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `resource` | Function | -       | R3shaper resource method                                                                                                  |
+| `debounce` | Number   | 0       | Debounce time (ms)                                                                                                        |
+| `throttle` | Number   | 0       | Throttle time (ms)                                                                                                        |
+| `manual`   | Boolean  | false   | Shall the request be triggered manually                                                                                   |
+| `children` | Function | -       | React component that will receive following props: `loading`, `response`, `error` and `dispatch` ([see hook documentation](#hook_properties_docs)) |
+
+> All other props passed to R3shaper will be passed down to it's children
+
+
+
+
+## Higher-Order Component
 
 ```js
 import { withR3shaper } from 'r3shaper-react';
@@ -125,6 +123,6 @@ export default withR3shaper(OriginalComponent, resource, options);
 
 <br/>
 
-`withR3shaper` will give pass to OriginalComponent 4 new props: `loading`, `response`, `error` and `dispatch` (see hook documentation)
+`withR3shaper` will pass down to OriginalComponent 4 new props: `loading`, `response`, `error` and `dispatch` ([see hook documentation](#hook_properties_docs))
 
 Created with ❤️ by [Sergiu Masurceac](https://twitter.com/masurceac)
